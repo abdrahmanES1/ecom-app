@@ -10,10 +10,10 @@ const App = () => {
    return (
       <>
          <Router>
+            <NavbarResponsive />
+
             <ProductsContextProvider>
                <ShoppingCartContextProvider>
-                  <NavbarResponsive />
-
                   <Routes>
                      <Route exact path="/" element={<Home />} />
                      <Route exact path=":productId" element={<Product />} />

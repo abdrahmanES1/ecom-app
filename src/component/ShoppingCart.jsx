@@ -24,11 +24,11 @@ const ShoppingCart = () => {
       <div className="container">
          <h1 className="text-center my-2">Shopping Card</h1>
          <div className="row">
-            <p>
+            <p className="text-center text-muted">
                Number of Products : {numberOfCmd} Cost : {Math.ceil(cost, 1)} $
             </p>
          </div>
-         <div className="row">
+         <div className="row justify-content-center">
             {!state.shopingProducts.length ? (
                <div className="text-center display-5 my-5 text-muted">
                   shopping cart is Empty
@@ -36,10 +36,17 @@ const ShoppingCart = () => {
             ) : (
                state.shopingProducts.map((product) => {
                   return (
-                     <div className="col col-md-4" key={product.id}>
+                     <div style={{ width: "18rem" }} key={product.id}>
                         <div className="p-2 m-2 text-center border border-2 rounded">
-                           <img src={product.image} alt="xv" width="100" />
-                           <p className="p-1 ">{product.title}</p>
+                           <img
+                              src={product.image}
+                              alt="xv"
+                              width="100"
+                              height="150px"
+                           />
+                           <p className="p-1 ">
+                              {product.title.split(" ", 3).join("")}
+                           </p>
                            <p className="display-7 ">{product.price} $</p>
                            <ShoppingButtons
                               id={product.id}
